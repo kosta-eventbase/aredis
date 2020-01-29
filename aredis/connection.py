@@ -461,7 +461,7 @@ class BaseConnection:
             if isinstance(command, str):
                 command = [command]
             self._writer.writelines(command)
-        except asyncio.futures.TimeoutError:
+        except asyncio.TimeoutError:
             self.disconnect()
             raise TimeoutError("Timeout writing to socket")
         except Exception:
